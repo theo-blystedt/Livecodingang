@@ -4,13 +4,18 @@
 
 <ul>
   <li *ngFor="let iter of courses">
-    {{iter}}
+    Course code: {{iter.cCode}} {{iter.cCredits}} {{iter.cName}}
   </li>
 </ul>
 
 <table border ="1">
+  <thead>
+  <td> Course credits</td> <td>Course name</td><td>Course code</td>
+  </thead>
   <tr *ngFor="let i of courses">
-    {{i}}
+    <td>{{i.cCredits}} </td>
+    <td>{{i.cName}}</td>
+    <td>{{i.cCode}}</td>
   </tr>
 </table>
 

@@ -1,4 +1,6 @@
 import { Component,OnInit } from '@angular/core';
+import {Courses} from "../../Courses";
+import {CourseListService} from "../../services/course-list.service";
 
 @Component({
   selector: 'app-content',
@@ -6,19 +8,18 @@ import { Component,OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit{
-  dept: string;
-  courses: string[];
+  dept: string = "Informatics";
+  courses: Courses[] = [];
 
-  constructor() {
-    this.dept="Informatics"
-    this.courses = [
-      'Java',
-      'OOP',
-      'Webdevelopment'
-    ];
+
+
+  constructor(private courseService: CourseListService) {
+
+
   }
 
   ngOnInit(){
+    this.courses = this.courseService.getCourses();
   }
 
 }
